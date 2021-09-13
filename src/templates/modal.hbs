@@ -1,30 +1,29 @@
 <div class="backdrop js-backdrop">
     <div class="modal">
-        <div class="modal">
-            <button class="modal__close-btn" type="button" data-modal-close><span>&#10006;</span></button>
-            <div class="modal__content-picture">
-                <img class="modal-picture" srcset = '../images/img@2xt1-min.jpg' alt='' width='240' />
-            </div>
-            <div class="modal__content-discription">
-                <h2>{{}}</h2>
+        <button class="modal__close-btn" type="button" data-modal-close><span>&#10006;</span></button>
+        <div class="modal__content-picture">
+            <img class="modal-picture" srcset = '../' alt='' width='240' />
+        </div>
+        <div class="modal__content-discription">
+                <h2 class="modal__content-discription-title">{{}}</h2>
                 <div class="modal__table">
-                    <table class="modal__table-data">
+                    <table class="modal__table-info">
                         <tbody>
-                            <tr>
-                                <th>Vote/Votes &emsp;</th>
-                                <td> {{}} / {{}} </td>
+                            <tr class="modal__table-row">
+                                 <th class="modal__table-head" >Vote/Votes &emsp;</th>
+                                 <td class="modal__table-data"><span class="modal__table-data-votes">{{}}</span>/ {{}} </td>
+                             </tr>
+                             <tr class="modal__table-data-row">
+                                 <th class="modal__table-head">Popularity &emsp;</th>
+                                 <td class="modal__table-data"> {{}} </td>
+                             </tr>
+                             <tr class="modal__table-data-row">
+                                 <th class="modal__table-head">Original Title &emsp;</th>
+                                 <td class="modal__table-data">{{}}</td>
                             </tr>
-                            <tr>
-                                <th>Popularity &emsp;</th>
-                                <td>{{}}</td>
-                            </tr>
-                            <tr>
-                                <th>Original Title &emsp;</th>
-                                <td>{{}}</td>
-                            </tr>
-                            <tr>
-                                <th>Genre &emsp;</th>
-                                <td>{{}}</td>
+                                 <tr class="modal__table-data-row">
+                                 <th class="modal__table-head">Genre &emsp;</th>
+                                 <td class="modal__table-data">{{}}</td>
                             </tr>
                         </tbody>
                     </table>
@@ -33,7 +32,6 @@
                 <p> {{}} </p>
                 <button class="modal__btn">add to Watched</button>
                 <button class="modal__btn">add to queue</button>
-            </div>
-        </div>
+        </div>  
     </div>
 </div>
