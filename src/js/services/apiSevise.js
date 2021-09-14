@@ -11,14 +11,13 @@ class ApiService {
     const movies = await response.json();
     console.log(movies)
     return movies;
-
   }
 
   async fetchGetGenres() {
     const response = await fetch(`${BASE_FETCH_URL}/genre/movie/list?api_key=${API_KEY}&language=en-US`);
-    const genre = await response.json();
-    console.log(genre)
-    return genre;
+    const genres = await response.json();
+    console.log(genres)
+    return genres;
   }
 }
 
