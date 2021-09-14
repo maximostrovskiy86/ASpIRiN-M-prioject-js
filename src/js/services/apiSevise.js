@@ -1,1 +1,1 @@
-import {BASE_FETCH_URL, API_KEY} from "../const";
+import { BASE_FETCH_URL, API_KEY } from '../const';
