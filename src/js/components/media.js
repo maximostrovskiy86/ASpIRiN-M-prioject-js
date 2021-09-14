@@ -7,13 +7,21 @@ import itemMediaTpl from '../../templates/item-media.hbs';
 
 const onLoadPage = async () => {
   const genres = await newApiService.fetchGetGenres();
-  console.log(genres)
+  // console.log(genres)
 
   const data = await newApiService.fetchGetMediaTrending();
-  const result = data.results.map(item => ({
-    ...item,
-    genres: genres
-  }))
+  // console.log(data)
+  // const result = data.results.map(item => ({
+  //   ...item,
+  //   genres: genres
+  // }))
+
+
+  const result = data.results.map(item => {
+    console.log(item.genre_ids)
+  })
+
+
 
   appendMediaMarkup(data);
 }
