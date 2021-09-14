@@ -1,4 +1,4 @@
-import {outputRefs} from "../const/refs";
+import { outputRefs } from "../const/refs";
 import newApiService from "../services/apiSevise";
 import itemMediaTpl from '../../templates/item-media.hbs';
 
@@ -31,16 +31,15 @@ const onLoadPage = async () => {
       }
     }
     return newArr;
-  }
+  };
 
-  const newData = {...data, results: result};
+  const newData = { ...data, results: result };
   console.log(newData);
 
   appendMediaMarkup(newData);
 }
-
 onLoadPage();
 
-function appendMediaMarkup({results}) {
+function appendMediaMarkup({ results }) {
   return outputRefs.insertAdjacentHTML('beforeend', itemMediaTpl(results));
 }
