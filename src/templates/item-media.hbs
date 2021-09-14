@@ -1,0 +1,18 @@
+{{#each this}}
+  <li class="film-card">
+    <div class="thumb">
+      <img src="https://image.tmdb.org/t/p/w500/{{poster_path}}" alt="{{original_title}}" width="350" height="500"/>
+    </div>
+    <div class="description">
+      <p class="description-title">
+      <h3>{{title}}</h3>
+      </p>
+      <p class="description-wrapper">
+        {{#each genres}}
+          <span>{{name}}</span>
+        {{/each}}
+        <span>{{release_date}}</span><span class="rating">{{vote_average}}</span>
+      </p>
+    </div>
+  </li>
+{{/each}}
