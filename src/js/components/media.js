@@ -33,5 +33,4 @@ function appendMediaMarkup({results}) {
 }
 
 
-
 // document.addEventListener('DOMContentLoaded', onLoadPage)
