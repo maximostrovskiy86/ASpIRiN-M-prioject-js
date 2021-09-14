@@ -30,11 +30,10 @@
   display: none;
 }
 
-//
-
 .js-buttons.is-hidden {
   display: none;
 }
+
 .js-main.is-hidden {
   display: none;
 }
@@ -129,12 +128,12 @@
 }
 
 @media screen and (min-device-pixel-ratio: 2) and (max-width: 767px),
-  screen and (min-resolution: 192dpi) and (max-width: 767px),
-  screen and (min-resolution: 2dppx) and (max-width: 767px) {
+screen and (min-resolution: 192dpi) and (max-width: 767px),
+screen and (min-resolution: 2dppx) and (max-width: 767px) {
   .header {
     &__container {
       background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
-        url('../images/header-bg-mobile@2x.jpg');
+      url('../images/header-bg-mobile@2x.jpg');
     }
   }
 }
@@ -143,18 +142,18 @@
   .header {
     &__container {
       background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
-        url('../images/header-bg-mobile.jpg');
+      url('../images/header-bg-mobile.jpg');
     }
   }
 }
 
 @media screen and (min-device-pixel-ratio: 2) and (min-width: 768px),
-  screen and (min-resolution: 192dpi) and (min-width: 768px),
-  screen and (min-resolution: 2dppx) and (min-width: 768px) {
+screen and (min-resolution: 192dpi) and (min-width: 768px),
+screen and (min-resolution: 2dppx) and (min-width: 768px) {
   .header {
     &__container {
       background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
-        url('../images/header-bg-tablet@2x.jpg');
+      url('../images/header-bg-tablet@2x.jpg');
     }
   }
 }
@@ -163,7 +162,7 @@
   .header {
     &__container {
       background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
-        url('../images/header-bg-tablet.jpg');
+      url('../images/header-bg-tablet.jpg');
     }
   }
 }
@@ -193,12 +192,12 @@
 }
 
 @media screen and (min-device-pixel-ratio: 2) and (min-width: 1024px),
-  screen and (min-resolution: 192dpi) and (min-width: 1024px),
-  screen and (min-resolution: 2dppx) and (min-width: 1024px) {
+screen and (min-resolution: 192dpi) and (min-width: 1024px),
+screen and (min-resolution: 2dppx) and (min-width: 1024px) {
   .header {
     &__container {
       background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
-        url('../images/header-bg-desktop@2x.jpg');
+      url('../images/header-bg-desktop@2x.jpg');
     }
   }
 }
@@ -207,14 +206,16 @@
   .header {
     &__container {
       background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
-        url('../images/header-bg-desktop.jpg');
+      url('../images/header-bg-desktop.jpg');
     }
   }
 }
+
 .logo__text {
   color: #ffffff;
   visibility: hidden;
 }
+
 @media screen and (min-width: 768px) {
   .logo {
     display: -webkit-box;
@@ -234,11 +235,13 @@
     color: #ffffff;
   }
 }
+
 /* ========== End Header ========== */
 .header-buttons-container {
   display: flex;
   justify-content: center;
 }
+
 .header-button-wached {
   font-weight: 500;
   font-size: 12px;
@@ -281,5 +284,6 @@
 
 .bg-libary {
   background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
-    url('../images/header-bg-desktop.jpg');
+  url('../images/header-bg-desktop.jpg');
 }
+
