@@ -8,11 +8,11 @@
     margin-left: 15px;
     margin-top: 15px;
     @media screen and (min-width: 768px) {
-        flex-basis: calc((100% - 2 * 15px) / 2);
+      flex-basis: calc((100% - 2 * 15px) / 2);
     }
 
     @media screen and (min-width: 1024px) {
-        flex-basis: calc((100% - 3 * 15px) / 3);
+      flex-basis: calc((100% - 3 * 15px) / 3);
     }
   }
 }
@@ -23,43 +23,30 @@
   font-size: 12px;
   font-style: normal;
   line-height: 1.16;
-
   &__title {
     text-transform: uppercase;
   }
-
   &__wrapper {
     display: flex;
     flex-wrap: wrap;
     align-items: baseline;
-    font-size: 12px;
-    line-height: 1.16;
     color: #FF6B08;
-
+    &-genre {
+      margin-right: 3px;
+      &:last-child {
+        color: transparent;
+      }
+    }
     &-date {
       margin-right: 5px;
-      color: #FF6B08;
-
-      &-genre {
-        margin-right: 3px;
-
-        &:last-child {
-          color: transparent;
-        }
-      }
-
-      &-date {
-        margin-right: 5px;
-        padding-left: 3px;
-        border-left: 1px solid #FF6B08;
-      }
-
-      &-rating {
-        padding: 1px 10px;
-        background: #FF6B01;
-        color: #fff;
-        border-radius: 5px;
-      }
+      padding-left: 3px;
+      border-left: 1px solid #FF6B08;
+    }
+    &-rating {
+      padding: 1px 10px;
+      background: #FF6B01;
+      color: #fff;
+      border-radius: 5px;
     }
   }
 }
