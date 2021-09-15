@@ -1,3 +1,4 @@
+{{#each this}}
 <div class='backdrop js-backdrop'>
   <div class='modal'>
     <button class='modal__close-btn' type='button' data-modal-close>
@@ -7,7 +8,7 @@
       <img class='modal-picture' src='https://image.tmdb.org/t/p/w500/{{poster_path}}' alt='' />
     </div>
     <div class='modal__content-discription'>
-      <h2 class='modal__content-discription-title'>{{name}}</h2>
+      <h2 class='modal__content-discription-title'>{{title}}</h2>
       <div class='modal__table'>
         <table class='modal__table-data'>
           <tbody>
@@ -24,11 +25,11 @@
             </tr>
             <tr class='modal__table-data-row'>
               <th class='modal__table-head'>Original Title &emsp;</th>
-              <td class='modal__table-data'>{{name}}</td>
+              <td class='modal__table-data'>{{title}}</td>
             </tr>
             <tr class='modal__table-data-row'>
               <th class='modal__table-head'>Genre &emsp;</th>
-              <td class='modal__table-data'>{{genres}}</td>
+              <td class='modal__table-data'>{{genre_id}}</td>
             </tr>
           </tbody>
         </table>
@@ -44,3 +45,4 @@
     </div>
   </div>
 </div>
+{{/each}}
