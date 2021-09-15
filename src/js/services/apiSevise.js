@@ -18,6 +18,7 @@ class ApiService {
       `${BASE_FETCH_URL}/genre/movie/list?api_key=${API_KEY}&language=en-US`
     );
     const genres = await response.json();
+    console.log(genres)
     return genres;
   }
 
@@ -26,7 +27,6 @@ class ApiService {
     const movie = await response.json();
     console.log(movie)
     return movie;
-
   }
   // get filmId() {
   //   return this.id;
