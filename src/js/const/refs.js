@@ -6,3 +6,5 @@ export const mainsLink = document.querySelector('.js-main');
 export const headerLink = document.querySelector('.header__container');
 // Экспорт DOM  ссылок
 export const outputRefs = document.querySelector('.media-container');
+export const headerRefs = document.querySelector('.header');
+export const formRefs = document.querySelector('#header__form');

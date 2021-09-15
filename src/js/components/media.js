@@ -1,18 +1,34 @@
-import { outputRefs } from "../const/refs";
-import newApiService from "../services/apiSevise";
+import 'tui-pagination/dist/tui-pagination.css';
+import Pagination from 'tui-pagination';
+import { outputRefs } from '../const/refs';
+import newApiService from '../services/apiSevise';
 import itemMediaTpl from '../../templates/item-media.hbs';
 
 const onLoadPage = async () => {
   const genres = await newApiService.fetchGetGenres();
 
-  const data = await newApiService.fetchGetMediaTrending();
+  const data = await newApiService.fetchGetMediaTrending(1);
+  console.log('data', data);
+  const paginationOptions = {
+    itemsPerPage: 20,
+    visiblePages: 5,
+    // totalItems: Math.ceil(data.total_results / data.results),
+    totalItems: data.total_results,
+  };
+  const container = document.getElementById('tui-pagination-container');
+
+  const pagination = new Pagination(container, paginationOptions);
+  pagination.on('afterMove', async ({ page }) => {
+    console.log(page);
+    await newApiService.fetchGetMediaTrending(page);
+  });
 
   const genresArr = [...genres.genres];
 
   const result = data.results.map(item => ({
     ...item,
     release_date: getDate(item),
-    genre_ids: getGenres([...item.genre_ids])
+    genre_ids: getGenres([...item.genre_ids]),
   }));
 
   function getDate(item) {
@@ -31,13 +47,13 @@ const onLoadPage = async () => {
       }
     }
     return newArr;
-  };
+  }
 
   const newData = { ...data, results: result };
   console.log(newData);
 
   appendMediaMarkup(newData);
-}
+};
 onLoadPage();
 
 function appendMediaMarkup({ results }) {
