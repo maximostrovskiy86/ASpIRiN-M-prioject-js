@@ -17,8 +17,7 @@ const onLoadPage = async () => {
 
   function getDate(item) {
     const rDate = new Date(item.release_date);
-    const year = rDate.getFullYear();
-    return year;
+    return rDate.getFullYear();
   }
 
   function getGenres(arr) {
@@ -30,11 +29,11 @@ const onLoadPage = async () => {
         }
       }
     }
-    return newArr;
-  };
+    newArr.splice(3);
+    return newArr.join(', ');
+  }
 
   const newData = { ...data, results: result };
-  console.log(newData);
 
   appendMediaMarkup(newData);
 }
