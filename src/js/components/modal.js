@@ -3,22 +3,22 @@
 // import newApiService from '../services/apiSevise';
 
 const refs = {
-  openModal: document.querySelector('.film-card'),
+  openModal: document.querySelector('.media-container'),
   closeModal: document.querySelector('[data-action="close-modal"]'),
   backDrop: document.querySelector('.backdrop'),
 };
 
 function onPictureClick(evt) {
-  evt.preventDefault();
-  if (!evt.target.classList.contains('film-card')) {
-    return;
-  }
-  //   window.addEventListener('keydown', onEscKeyPress);
+  //   evt.preventDefault();
+  //   if (!evt.target.classList.contains('film-card')) {
+  //     return;
+  //   }
+  window.addEventListener('keydown', onEscKeyPress);
   refs.backDrop.classList.add('is-open');
 }
 
 function onCloseModal() {
-  //   window.removeEventListener('keydown', onEscKeyPress);
+  window.removeEventListener('keydown', onEscKeyPress);
   refs.backDrop.classList.remove('is-open');
 }
 
