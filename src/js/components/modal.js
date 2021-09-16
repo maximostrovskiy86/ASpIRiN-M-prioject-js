@@ -28,7 +28,11 @@ async function onPictureClick(evt) {
   window.addEventListener('keydown', onEscKeyPress);
   appendModalMarkup(data);
   refs.backDrop.classList.add('is-open');
+
+  const queueBtnRefs = document.querySelector('.js-queue');
+  queueBtnRefs.addEventListener('click', queueSave);
 }
+
 
 function appendModalMarkup(data) {
   return refs.modal.innerHTML = modalTemplateTpl(data);
@@ -51,6 +55,8 @@ function onEscKeyPress(e) {
     onCloseModal();
   }
 }
+
+
 
 refs.openList.addEventListener('click', onPictureClick)
 refs.closeModal.addEventListener('click', onCloseModal);
