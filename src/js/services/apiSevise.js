@@ -5,6 +5,7 @@ class ApiService {
   constructor() {
     this.query = '';
     this.openFilm = null;
+    // this.genres = [];
   }
 
   async fetchGetMediaTrending(page) {
@@ -18,13 +19,12 @@ class ApiService {
 
   async fetchGetGenres() {
     const response = await fetch(
-      `${BASE_FETCH_URL}/genre/movie/list?api_key=${API_KEY}&language=en-US`
+      `${BASE_FETCH_URL}/genre/movie/list?api_key=${API_KEY}&language=en-US`,
     );
     const genres = await response.json();
-    // console.log(genres)
+    this.genres = genres.genres;
     return genres;
   }
-
 
   async searchMovie(page) {
     const response = await fetch(
@@ -41,7 +41,6 @@ class ApiService {
   async fetchOpenModal(id) {
     const response = await fetch(`${BASE_FETCH_URL}/movie/${id}?api_key=${API_KEY}&language=en-US`);
     const movie = await response.json();
-    console.log(movie)
     this.openFilm = movie;
     return movie;
   }

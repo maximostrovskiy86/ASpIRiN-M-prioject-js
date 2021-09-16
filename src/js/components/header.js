@@ -1,6 +1,9 @@
 import { outputRefs } from '../const/refs';
 import itemMediaTpl from '../../templates/item-media.hbs';
 import errorNotification from './pnotify';
+import startPagination from '../components/tui-pagination';
+import prepareData from '../services/prepareData';
+import onLoadPage from '../components/media';
 import {
   homeLink,
   libraryLink,
@@ -43,8 +46,11 @@ async function serchMovieHandler(event) {
   event.preventDefault();
   apiService.searchQuery = event.currentTarget.elements.form__input.value;
   // apiService.searchMovie().then(data => console.log('data', data));
-  const genres = await apiService.fetchGetGenres();
-
+  // const genres = await apiService.fetchGetGenres();
+  if (apiService.query === '') {
+    onLoadPage();
+    return;
+  }
   const data = await apiService.searchMovie();
 
   if (data.results.length === 0) {
@@ -52,37 +58,38 @@ async function serchMovieHandler(event) {
     return;
   }
 
-  const genresArr = [...genres.genres];
+  // const genresArr = [...genres.genres];
 
-  const result = data.results.map(item => ({
-    ...item,
-    release_date: getDate(item),
-    genre_ids: getGenres([...item.genre_ids]),
-  }));
-  console.log('result', result);
+  // const result = data.results.map(item => ({
+  //   ...item,
+  //   release_date: getDate(item),
+  //   genre_ids: getGenres([...item.genre_ids]),
+  // }));
+  // console.log('result', result);
 
-  function getDate(item) {
-    const rDate = new Date(item.release_date);
-    const year = rDate.getFullYear();
-    return year;
-  }
+  // function getDate(item) {
+  //   const rDate = new Date(item.release_date);
+  //   const year = rDate.getFullYear();
+  //   return year;
+  // }
 
-  function getGenres(arr) {
-    let newArr = [];
-    for (let i = 0; i < arr.length; i++) {
-      for (let j = 0; j < genresArr.length; j++) {
-        if (genresArr[j].id == arr[i]) {
-          newArr.push(genresArr[j].name);
-        }
-      }
-    }
-    return newArr;
-  }
+  // function getGenres(arr) {
+  //   let newArr = [];
+  //   for (let i = 0; i < arr.length; i++) {
+  //     for (let j = 0; j < genresArr.length; j++) {
+  //       if (genresArr[j].id == arr[i]) {
+  //         newArr.push(genresArr[j].name);
+  //       }
+  //     }
+  //   }
+  //   return newArr;
+  // }
 
-  const newData = { ...data, results: result };
+  // const newData = { ...data, results: result };
   // console.log(newData);
-
+  const newData = prepareData(data);
   appendMediaMarkup(newData);
+  startPagination(data.total_pages);
 }
 
 // ===============================
