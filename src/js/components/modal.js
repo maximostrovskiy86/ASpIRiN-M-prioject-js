@@ -17,9 +17,9 @@ async function onPictureClick(evt) {
   const data = await newApiService.fetchOpenModal(target.dataset.id);
   console.log(data)
 
-  // const arr = data.genres.map(item => item.name)
-  // arr.splice(3)
-  // console.log(arr)
+  const arr = data.genres.map(item => item.name)
+  arr.splice(3)
+  console.log(arr)
 
   // if (!evt.target.classList.contains('film-card')) {
   //   return;
