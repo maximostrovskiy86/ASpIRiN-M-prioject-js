@@ -28,6 +28,7 @@ async function onPictureClick(evt) {
   window.addEventListener('keydown', onEscKeyPress);
   appendModalMarkup(data);
   refs.backDrop.classList.add('is-open');
+  document.body.style.overflow = "hidden";
 }
 
 function appendModalMarkup(data) {
@@ -37,6 +38,7 @@ function appendModalMarkup(data) {
 function onCloseModal() {
   window.removeEventListener('keydown', onEscKeyPress);
   refs.backDrop.classList.remove('is-open');
+  document.body.style.overflow = "auto";g
 }
 
 function onbackDropClick(e) {
