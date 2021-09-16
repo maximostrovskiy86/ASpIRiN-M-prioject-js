@@ -1,12 +1,13 @@
-@import "./base/reset";
+@import './base/reset';
 
-@import "./utils/variables";
-@import "./utils/mixin";
+@import './utils/variables';
+@import './utils/mixin';
 
-@import "./components/modal";
+@import './components/modal';
 @import './components/container';
 
-@import "./layout/body";
+@import './layout/body';
 @import './layout/header';
 @import './layout/products';
 @import './layout/footer';
+@import './layout/spinner';
