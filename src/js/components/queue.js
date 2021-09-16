@@ -26,10 +26,9 @@ export const queueSave = () => {
   localQueue.push(film)
   localStorageFn.save('dataQueue', localQueue);
 
-
 }
 
-queueBtnRefs.addEventListener('click', queueSave);
+
 
 
 

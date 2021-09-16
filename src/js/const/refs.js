@@ -9,6 +9,6 @@ export const outputRefs = document.querySelector('.media-container');
 export const headerRefs = document.querySelector('.header');
 export const formRefs = document.querySelector('#header__form');
 export const queueRefs = document.querySelector('.list-queue');
-export const queueBtnRefs = document.querySelector('.js-queue');
+// export const queueBtnRefs = document.querySelector('.js-queue');
 export const spinner = document.querySelector('.mask');
 

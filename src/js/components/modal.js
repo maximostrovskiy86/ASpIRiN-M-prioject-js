@@ -20,6 +20,7 @@ async function onPictureClick(evt) {
   // console.log(data)
 
 
+
   // const arr = data.genres.map(item => item.name)
   // arr.splice(3)
   // console.log(arr)
@@ -32,7 +33,10 @@ async function onPictureClick(evt) {
   appendModalMarkup(data);
   refs.backDrop.classList.add('is-open');
 
+  const queueBtnRefs = document.querySelector('.js-queue');
+  queueBtnRefs.addEventListener('click', queueSave);
 }
+
 
 function appendModalMarkup(data) {
   return refs.modal.innerHTML = modalTemplateTpl(data);
