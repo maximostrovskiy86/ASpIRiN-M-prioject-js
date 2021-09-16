@@ -1,40 +1,51 @@
-
 import 'tui-pagination/dist/tui-pagination.css';
 import Pagination from 'tui-pagination';
-import { outputRefs } from '../const/refs';;
-import newApiService from "../services/apiSevise";
-import newDataModification from "./dataModification";
-
+import { outputRefs } from '../const/refs';
+import newApiService from '../services/apiSevise';
+import newDataModification from './dataModification';
+import prepareData from '../services/prepareData';
 import itemMediaTpl from '../../templates/item-media.hbs';
+import initPagination from '../components/tui-pagination';
 
 const onLoadPage = async () => {
-  const genres = await newApiService.fetchGetGenres();
+  await newApiService.fetchGetGenres();
 
   const data = await newApiService.fetchGetMediaTrending(1);
   console.log('data', data);
-  const paginationOptions = {
-    itemsPerPage: 20,
-    visiblePages: 5,
-    // totalItems: Math.ceil(data.total_results / data.results),
-    totalItems: data.total_results,
-  };
-  const container = document.getElementById('tui-pagination-container');
+  initPagination(data.total_pages);
+  // const paginationOptions = {
+  //   itemsPerPage: 20,
+  //   visiblePages: 5,
+  //   totalItems: data.total_pages > 500 ? 500 : data.total_pages,
+  //   // totalItems: data.total_results,
+  // };
+  // const container = document.getElementById('tui-pagination-container');
 
-  const pagination = new Pagination(container, paginationOptions);
-  pagination.on('afterMove', async ({ page }) => {
-    console.log(page);
-    await newApiService.fetchGetMediaTrending(page);
-  });
+  // const pagination = new Pagination(container, paginationOptions);
+  // pagination.on('afterMove', async ({ page }) => {
+  //   console.log(page);
+  //   const apiData = await newApiService.fetchGetMediaTrending(page);
+  //   console.log('apiData', apiData);
+  // const genresArr = [...genres.genres];
 
-  const genresArr = [...genres.genres];
+  // const result = apiData.results.map(item => ({
+  //   ...item,
 
-  const result = data.results.map(item => ({
-    ...item,
+  //   release_date: newDataModification.getDate(item),
+  //   genre_ids: newDataModification.getGenres([...item.genre_ids], genresArr),
+  // }));
+  // const newData = { ...apiData, results: result };
+  //   const newData = prepareData(apiData);
+  //   appendMediaMarkup(newData);
+  // });
+  // const genresArr = [...genres.genres];
 
-  release_date: newDataModification.getDate(item),
-genre_ids: newDataModification.getGenres([...item.genre_ids], genresArr)
-}));
+  // const result = data.results.map(item => ({
+  //   ...item,
 
+  //   release_date: newDataModification.getDate(item),
+  //   genre_ids: newDataModification.getGenres([...item.genre_ids], genresArr),
+  // }));
 
   // function getDate(item) {
   //   const rDate = new Date(item.release_date);
@@ -54,12 +65,14 @@ genre_ids: newDataModification.getGenres([...item.genre_ids], genresArr)
   //   return newArr;
   // }
 
-  const newData = { ...data, results: result };
-
+  // const newData = { ...data, results: result };
+  // console.log('newData', newData);
+  const newData = prepareData(data);
   appendMediaMarkup(newData);
 };
 onLoadPage();
 
 function appendMediaMarkup({ results }) {
-  return outputRefs.insertAdjacentHTML('beforeend', itemMediaTpl(results));
+  outputRefs.innerHTML = itemMediaTpl(results);
 }
+export default onLoadPage;
