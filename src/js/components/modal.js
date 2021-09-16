@@ -5,6 +5,7 @@ const refs = {
   openList: document.querySelector('.media-container'),
   closeModal: document.querySelector('[data-action="close-modal"]'),
   backDrop: document.querySelector('.backdrop'),
+  modal: document.querySelector('.modal-wrapper'),
 };
 
 console.log(refs.closeModal)
@@ -30,7 +31,7 @@ async function onPictureClick(evt) {
 }
 
 function appendModalMarkup(data) {
-  return refs.backDrop.insertAdjacentHTML('beforeend', modalTemplateTpl(data));
+  return refs.modal.innerHTML = modalTemplateTpl(data);
 }
 
 function onCloseModal() {
@@ -45,7 +46,7 @@ function onbackDropClick(e) {
 }
 
 function onEscKeyPress(e) {
-  const ESC_KEY_CODE = Escape;
+  const ESC_KEY_CODE = 'Escape';
   if (e.code === ESC_KEY_CODE) {
     onCloseModal();
   }

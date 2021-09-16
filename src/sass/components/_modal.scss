@@ -9,10 +9,11 @@
   pointer-events: none;
   transition: opacity 750ms cubic-bezier(0.4, 0, 0.2, 1);
 }
- //
- //.js-modal {
- //  display: none;
- //}
+
+.modal-content,
+.modal__table-data-row{
+  display: flex;
+}
 
 .backdrop.is-open {
   opacity: 1;
@@ -70,8 +71,9 @@
   right: 25px;
   top: 25px;
   border: none;
-
   transform: rotate(-90deg);
+  cursor: pointer;
+
 }
 
 .modal__close-btn:hover,
