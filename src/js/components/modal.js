@@ -16,10 +16,6 @@ async function onPictureClick(evt) {
   const target = evt.target;
 
   const data = await newApiService.fetchOpenModal(target.dataset.id);
-  // console.log(target.dataset.id)
-  // console.log(data)
-
-
 
   // const arr = data.genres.map(item => item.name)
   // arr.splice(3)
