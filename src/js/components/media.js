@@ -1,7 +1,7 @@
 
 import 'tui-pagination/dist/tui-pagination.css';
 import Pagination from 'tui-pagination';
-import { outputRefs } from '../const/refs';;
+import { outputRefs } from '../const/refs';
 import newApiService from "../services/apiSevise";
 import newDataModification from "./dataModification";
 
@@ -30,10 +30,9 @@ const onLoadPage = async () => {
 
   const result = data.results.map(item => ({
     ...item,
-
-  release_date: newDataModification.getDate(item),
-genre_ids: newDataModification.getGenres([...item.genre_ids], genresArr)
-}));
+    release_date: newDataModification.getDate(item),
+    genre_ids: newDataModification.getGenres([...item.genre_ids], genresArr)
+  }));
 
 
   // function getDate(item) {
