@@ -8,3 +8,5 @@ export const headerLink = document.querySelector('.header__container');
 export const outputRefs = document.querySelector('.media-container');
 export const headerRefs = document.querySelector('.header');
 export const formRefs = document.querySelector('#header__form');
+export const queueRefs = document.querySelector('.list-queue');
+export const queueBtnRefs = document.querySelector('.js-queue');

@@ -1,5 +1,7 @@
 import modalTemplateTpl from '../../templates/modal.hbs';
 import newApiService from '../services/apiSevise';
+import {queueBtnRefs} from "../const/refs";
+import {queueSave} from "./queue";
 
 const refs = {
   openList: document.querySelector('.media-container'),
@@ -8,14 +10,15 @@ const refs = {
   modal: document.querySelector('.modal-wrapper'),
 };
 
-console.log(refs.closeModal)
 
 async function onPictureClick(evt) {
   evt.preventDefault();
-
   const target = evt.target;
+
   const data = await newApiService.fetchOpenModal(target.dataset.id);
-  console.log(data)
+  // console.log(target.dataset.id)
+  // console.log(data)
+
 
   // const arr = data.genres.map(item => item.name)
   // arr.splice(3)
@@ -28,6 +31,7 @@ async function onPictureClick(evt) {
   window.addEventListener('keydown', onEscKeyPress);
   appendModalMarkup(data);
   refs.backDrop.classList.add('is-open');
+
 }
 
 function appendModalMarkup(data) {
@@ -52,6 +56,10 @@ function onEscKeyPress(e) {
   }
 }
 
+
+
 refs.openList.addEventListener('click', onPictureClick)
 refs.closeModal.addEventListener('click', onCloseModal);
 refs.backDrop.addEventListener('click', onbackDropClick);
+
+
